@@ -326,7 +326,7 @@ public class LinkedIntList {
 		for (Node currentPos = first; currentPos != null; currentPos = currentPos.next) {
 			lenCounter++;
 		}
-		for (Node currentPos = otherList.first; currentPos != null; currentPos = currentPos.next) {
+		for (Node currentPos = otherList.first; currentPos != null; currentPos = currentPos.next) {  //checks if lists are equal lengths and throws an exception if not
 			SecondlenCounter++;
 		}
 		if (lenCounter != SecondlenCounter) {
@@ -338,13 +338,13 @@ public class LinkedIntList {
 		for (Node currentPos = otherList.first; currentPos != null; currentPos = currentPos.next) {
 			modifiedList.addFirst(currentPos.item);
 		}
-		for (Node currentPos = first; currentPos != null; currentPos = currentPos.next) {  //idk how but unless i made new lists for each of the lists it was reversing one of them. weird bill gates voodoo magic
+		for (Node currentPos = first; currentPos != null; currentPos = currentPos.next) { //puts the contents of both lists into two reversed other lists
 			modifiedList2.addFirst(currentPos.item);
 		}
 		for (Node currentPos = first; currentPos != null; currentPos = currentPos.next) {
 			int add1 = modifiedList2.removeFirst();
-			int add2 = modifiedList.removeFirst();
-			Node newAdd = new Node();
+			int add2 = modifiedList.removeFirst();	//retrieves the first item of each list, adds them to the returned list, and then removes the firsts from both lists, and repeats for every item in the list.
+			Node newAdd = new Node();				
 			newAdd.item = add1 + add2;
 			CombinedList.addFirst(newAdd.item);
 		}
